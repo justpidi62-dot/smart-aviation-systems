@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Starter - Free HTML CSS Template</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="templatemo-parallax-starter.css">
+    <!--
+
+TemplateMo 612 Parallax Starter
+
+https://templatemo.com/tm-612-parallax-starter
+
+-->
+    <!-- Gaya CSS Tambahan untuk Laman Web Anda -->
+    <style>
+        /* --- GAYA KAD PREMIUM SAMA SEPERTI OUR TEAM --- */
+        .premium-card {
+            background: rgba(15, 23, 42, 0.6); /* Latar belakang gelap lutsinar premium */
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .premium-card:hover {
+            border-color: #00f0ff; /* Garis neon cerah apabila di-hover */
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.15);
+        }
+
+        /* --- SUSUNAN STRUKTUR BAHARU ABOUT US --- */
+        .about-cols-custom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: stretch; /* Memastikan tinggi kiri dan kanan seimbang */
+            width: 100%;
+        }
+        .right-column-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Jarak antara video atas dan video bawah */
+            justify-content: space-between;
+        }
+
+        /* --- CSS untuk Video MP4 Tempatan --- */
+        .local-video-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .local-video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* --- GAYA BAHAGIAN PRODUCT (4 KOLUM) --- */
+        .services-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+            margin-top: 40px;
+        }
+        .product-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .product-image-wrap {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            background-color: #222;
+        }
+        .product-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .product-item h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        .product-item p {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.4;
+        }
+
+        /* --- GAYA BAHAGIAN OUR TEAM (4 KOLUM AVATAR) --- */
+        .team-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            width: 100%;
+            margin-top: 45px;
+        }
+        .team-member-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(5px);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            border-color: #00f0ff;
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.15);
+        }
+        .team-avatar-wrap {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .team-member-card:hover .team-avatar-wrap {
+            border-color: #00f0ff;
+            transform: scale(1.05);
+        }
+        .team-avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .team-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .team-role {
+            font-size: 0.85rem;
+            color: #00f0ff;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        /* Skrin Responsif */
+        @media (max-width: 992px) {
+            .about-cols-custom { grid-template-columns: 1fr; }
+            .services-grid-4, .team-grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .services-grid-4, .team-grid-4 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="templatemo-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">HOPPERS</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">PRODUCT</a></li>
+                <li><a href="#gallery">TEAM</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section 1: Home / Hero -->
+    <section id="home" class="parallax-section">
+        <div class="parallax-bg" data-speed="0.5" style="background-image: url('images/parallax-bg-01.jpg')"></div>
+        <div class="parallax-overlay"></div>
+        <div class="section-content">
+            <h1 class="section-title hero-title">SMART AVIATION SYSTEM</h1>
+            <p class="section-subtitle caps">SMARTER FLIGHT - SAFER SKIES&nbsp;</p>
+            <a href="#about" class="btn-scroll">EXPLORE</a>
+        </div>
+    </section>
+
+    <!-- Section 2: About (Kiri Poster vs Kanan Dua Kad Video MP4) -->
+    <section id="about" class="parallax-section">
+        <div class="parallax-bg" data-speed="0.45" style="background-image: url('images/parallax-bg-02.jpg')"></div>
+        <div class="parallax-overlay"></div>
+      <div class="section-content">
+            <h2 class="section-title">ABOUT US</h2>
+            
+        <div class="about-cols-custom">
+                
+                <!-- KOLUM KIRI: Kad Poster -->
+          <div class="about-left-col premium-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="about-thumb" style="width: 100%; height: auto; overflow: hidden; border-radius: 8px;">
+                        <img src="images/tester.jpg" alt="Poster System" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                    </div>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; letter-spacing: 2px; text-align: center; margin-top: 15px; color: #ffffff; margin-bottom: 0;">POSTER</h3>
+                </div>
+                
+                <!-- KOLUM KANAN: Dua Tingkat Kad Video MP4 -->
+          <div class="right-column-stack">
+                    
+                    <!-- KAD ATAS: DEMO VIDEO (MP4 Tempatan) -->
+            <div class="premium-card">
+                        <div class="local-video-container">
+                            <video controls>
+                                <source src="videos/demo.mp4" type="video/mp4">
+                                Browser anda tidak menyokong tag video HTML5.
+                            </video>
+                        </div>
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; letter-spacing: 2px; text-align: center; margin-top: 15px; color: #ffffff; margin-bottom: 0;">DEMO VIDEO</h3>
+                    </div>
+                    
+                    <!-- KAD BAWAH: VIDEO ANIMATION (MP4 Tempatan) -->
+            <div class="premium-card">
+                        <div class="local-video-container">
+                            <video controls>
+                                <source src="videos/videoanimation.mp4" type="video/mp4">
+                                Browser anda tidak menyokong tag video HTML5.
+                            </video>
+                        </div>
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; letter-spacing: 2px; text-align: center; margin-top: 15px; color: #ffffff; margin-bottom: 0;">VIDEO ANIMATION</h3>
+                    </div>
+                    
+                </div>
+
+            </div>
+          <p class="unsplash-credit" style="margin-top: 30px;"> <a href="https://unsplash.com" target="_blank">HOPPERS</a></p>
+        </div>
+    </section>
+
+    <!-- Section 3: Services / PRODUCT -->
+    <section id="services" class="parallax-section">
+        <div class="parallax-bg" data-speed="0.55" style="background-image: url('images/parallax-bg-03.jpg')"></div>
+        <div class="parallax-overlay overlay-dark"></div>
+        <div class="section-content">
+            <h2 class="section-title">PRODUCT</h2>
+            <p class="section-subtitle caps">OUR LATEST INNOVATIONS AND SYSTEMS</p>
+            
+            <div class="services-grid-4">
+                <!-- KOLUM PRODUCT 1 -->
+              <div class="product-item">
+                    <div class="product-image-wrap">
+                        <img src="images/LIVE.png" alt="Product 1">
+                    </div>
+                  <h3>LIVE DASHBOARD&nbsp;</h3>
+                  <p>REAL TIME VISUALIZATION</p>
+                </div>
+                <!-- KOLUM PRODUCT 2 -->
+              <div class="product-item">
+                    <div class="product-image-wrap">
+                        <img src="images/FAULT.png" alt="Product 2">
+                    </div>
+                <h3>FAULT DIAGNOSTIC</h3>
+                  <p>AI POWERED DIAGNOSTIC IDENTIFY</p>
+                </div>
+                <!-- KOLUM PRODUCT 3 -->
+              <div class="product-item">
+                    <div class="product-image-wrap">
+                        <img src="images/MOBILE.png" alt="Product 3">
+                    </div>
+                  <h3>MOBILE ACCESS&nbsp;</h3>
+                  <p>ACCESS SYSTEM ANYWHERE ANYTIME</p>
+                </div>
+                <!-- KOLUM PRODUCT 4 -->
+              <div class="product-item">
+                    <div class="product-image-wrap">
+                        <img src="images/ALERT.png" alt="Product 4">
+                    </div>
+                  <h3>INSTANT ALERT</h3>
+                  <p>INSTANT ALERT WHEN ANOMALIES</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Gallery / OUR TEAM -->
+    <section id="gallery" class="parallax-section">
+        <div class="parallax-bg" data-speed="0.5" style="background-image: url('images/parallax-bg-04.jpg')"></div>
+        <div class="parallax-overlay"></div>
+        <div class="section-content">
+            <h2 class="section-title">OUR TEAM</h2>
+            <p class="section-subtitle caps">THE MINDS BEHIND THE SYSTEM</p>
+            
+            <div class="team-grid-4">
+                <!-- AHLI 1 -->
+                <div class="team-member-card">
+                    <div class="team-avatar-wrap">
+                      <img src="images/fit.png" alt="Team Member 1">
+                    </div>
+                    <div class="team-name">fityan</div>
+                    <div class="team-role">chief executive officer&nbsp;</div>
+                </div>
+                <!-- AHLI 2 -->
+                <div class="team-member-card">
+                    <div class="team-avatar-wrap">
+                      <img src="images/faidhi.jpg" alt="Team Member 2">
+                    </div>
+                    <div class="team-name">faidhi</div>
+                    <div class="team-role">chief operating officer</div>
+                </div>
+                <!-- AHLI 3 -->
+                <div class="team-member-card">
+                    <div class="team-avatar-wrap">
+                      <img src="images/shaz.png" alt="Team Member 3">
+                    </div>
+                    <div class="team-name">shazriq</div>
+                    <div class="team-role">chief marketing officer</div>
+                </div>
+                <!-- AHLI 4 -->
+                <div class="team-member-card">
+                    <div class="team-avatar-wrap">
+                      <img src="images/wan.png" alt="Team Member 4">
+                    </div>
+                    <div class="team-name">ikhwan</div>
+                    <div class="team-role">chief financial officer</div>
+                </div>
+            </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section id="contact" class="parallax-section">
+        <div class="parallax-bg" data-speed="0.5" style="background-image: url('images/parallax-bg-05.jpg')"></div>
+        <div class="parallax-overlay overlay-medium"></div>
+        <div class="section-content">
+            <h2 class="section-title">GET IN TOUCH</h2>
+            <p class="section-subtitle caps">LET'S START SOMETHING GREAT TOGETHER</p>
+            <div class="contact-form-wrap">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your name" required>
+                        <input type="email" placeholder="Your email" required>
+                    </div>
+                    <textarea placeholder="Your message" rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="templatemo-footer">
+        <p>Copyright &copy; 2026 Your Company. Designed by <a href="https://templatemo.com" rel="nofollow" target="_blank">TemplateMo</a></p>
+    </footer>
+    <script src="templatemo-parallax-script.js"></script>
+</body>
+</html>
